@@ -20,8 +20,8 @@ class CreateCarsTable extends Migration
                 $table->string('model');
                 $table->string('color');
                 $table->string('number')->unique();
-                $table->integer('client_id');
-                $table->foreign('client_id')->references('id')->on('clients');
+                $table->bigInteger('client_id')->unsigned();
+                $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
                 $table->boolean('parked');
                 $table->timestamps();
             });
@@ -35,6 +35,9 @@ class CreateCarsTable extends Migration
      */
     public function down()
     {
+//        Schema::table('cars', function (Blueprint $table) {
+//            $table->dropForeign(['client_id']);
+//        });
         Schema::dropIfExists('cars');
     }
 }

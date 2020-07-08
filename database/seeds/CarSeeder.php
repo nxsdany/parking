@@ -15,14 +15,14 @@ class CarSeeder extends Seeder
     public function run(Faker $faker)
     {
           $clients = DB::table('clients')->get();
-//        $colors = ['Красный', 'Синий', 'Зеленый', 'Баклажан', 'Мокрый асфальт'];
+//        $colors = ['Красный', 'Синий', 'Зеленый', 'Белый', 'Черный'];
         $symbols = ['А', 'В', 'Е', 'К', 'М', 'Н', 'О', 'Р', 'С', 'Т', 'У', 'Х'];
-        $brands = ['AUDI', 'BMW', 'ВАЗ', 'OPEL', 'RENO'];
+        $brands = ['AUDI', 'BMW', 'ВАЗ', 'OPEL', 'KIA'];
         $models = ['2115', 'e34', 'A7', '99', 'B3'];
         $numOfClients = count($clients);
         $carNums = [];
         while (count($carNums) < $numOfClients) {
-            $num = $symbols[array_rand($symbols, 1)] . rand(0, 999) . $symbols[array_rand($symbols, 1)] . $symbols[array_rand($symbols, 1)];
+            $num = $symbols[array_rand($symbols, 1)] . rand(0, 9) .  rand(0, 9) .  rand(0, 9) . $symbols[array_rand($symbols, 1)] . $symbols[array_rand($symbols, 1)] . rand(0, 9) .  rand(0, 9);
             if (in_array($num, $carNums)) {
                 continue;
             }
