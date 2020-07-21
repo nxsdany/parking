@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use App\Client;
-
-use Illuminate\Http\Request;
+use App\Http\Requests\CarRequest;
 
 class CarController extends Controller
 {
@@ -38,7 +37,7 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarRequest $request)
     {
         $car = array();
         $car['brand'] = $request->input('brand');

@@ -29,7 +29,7 @@
                     <tr>
                         <th scope="row">{{ $car->id }}</th>
                         <td>{{ $car->color }} {{ $car->brand }} &laquo;{{ $car->model }}&raquo;</td>
-                        <td>@if ($car->parked) Да @endif</td>
+                        <td>@if ($car->parked) Да @else Нет @endif</td>
                         <td>{{ $car->number }}</td>
                         <td>{{ $car->name }}</td>
                         <td>

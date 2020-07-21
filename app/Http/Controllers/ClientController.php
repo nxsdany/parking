@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client;
-use Illuminate\Http\Request;
+use App\Http\Requests\ClientRequest;
 
 class ClientController extends Controller
 {
@@ -34,7 +34,7 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
 //        $client = $request->except(['_token', 'submit']);
         $client = array();
@@ -45,6 +45,7 @@ class ClientController extends Controller
         $client['created_at'] = now();
         $client['updated_at'] = now();
        (new Client)->storeClient($client);
+
        return redirect('client')->with('success','Client created successfully.');
     }
 
@@ -78,7 +79,7 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClientRequest $request, $id)
     {
         $client = array();
         $client['id'] = $id;
