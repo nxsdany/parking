@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Client;
-use App\Car;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -15,11 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $model = new Client;
-        $clients = $model->getClients();
-        $cars = (new Car)->getClientOfCar(3);
-//        $cars = $model->cars(3);
-        return view('client.index', compact('clients', 'cars'));
+        $clients = (new Client)->getClients();
+        return view('client.index', compact('clients'));
     }
 
     /**
@@ -91,7 +87,6 @@ class ClientController extends Controller
         $client['phone'] = $request->input('phone');
         $client['address'] = $request->input('address');
         $client['updated_at'] = now();
-        dd($client)
        (new Client)->updateClient($client, $id);
               return redirect('client')->with('success','Client updated successfully.');
     }

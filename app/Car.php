@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class Car extends Model
 {
-    public function client() {
-        return $this->belongsTo(Client::class);
-    }
-
     public function getCars()
     {
         return DB::table('cars')->join('clients', 'cars.client_id', '=', 'clients.id')->paginate(5);

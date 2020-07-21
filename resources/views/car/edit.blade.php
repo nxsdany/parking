@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Добавить автомобиль')
+@section('title', 'Обновить данные автомобиля')
 @section('content')
 <div class="container">
 	<div class="row">
@@ -40,8 +40,8 @@
                         <div class="form-group">
                             <label for="client_id">Клиент
                                 <select class="form-control" name="client_id">
-                                    @foreach($clients as $key => $client)
-                                        <option value="{{ $key }}" @if (old('client_id', $client->id) == $key) {{'selected'}} @endif>
+                                    @foreach($clients as $client)
+                                        <option value="{{ $client->id }}" @if ($client->id == $car->client_id) {{'selected'}} @endif>
                                             {{ $client->name }}
                                         </option>
                                     @endforeach

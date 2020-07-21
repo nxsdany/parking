@@ -14,7 +14,7 @@ class Client extends Model
 
     public function getClients()
     {
-        return DB::table('clients')->join('cars', 'clients.id', '=', 'cars.client_id')->paginate(5);
+        return DB::table('clients')->leftJoin('cars', 'clients.id', '=', 'cars.client_id')->paginate(5);
     }
 
     public function getClientById($client_id)
@@ -37,10 +37,5 @@ class Client extends Model
     public function deleteClient($client_id)
     {
         DB::table('clients')->where('id', $client_id)->delete();
-    }
-
-    public function cars()
-    {
-    	return $this->hasMany(Car::class);
     }
 }
