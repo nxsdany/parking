@@ -1,7 +1,7 @@
 <template>
     <div v-if="car_data.parked == true" class="col-md-3 d-flex align-items-stretch mb-4">
         <div class="card text-center">
-            <div class="card-header"><h5>{{ car_data.id }} {{ car_data.name }}</h5></div>
+            <div class="card-header"><h5>{{ car_data.name }}</h5></div>
             <div class="card-body">
                 {{ car_data.color }}
                 <h4>{{ car_data.brand }}&laquo;{{ car_data.model }}&raquo;</h4>

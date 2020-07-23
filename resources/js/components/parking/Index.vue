@@ -6,8 +6,8 @@
                 <div class="col-md-5 form-group">
                     <label for="client">Клиент</label>
                       <select class="form-control" v-model="selectClient" id="client">
-                          <option v-if="car.parked == false" v-for="car in cars" v-bind:value="car.client_id">
-                            {{ car.name }}
+                          <option v-if="client.parked == false" v-for="client in unique(cars, 'name')" v-bind:value="client.client_id">
+                            {{ client.name }}
                           </option>
                       </select>
                 </div>
@@ -66,8 +66,21 @@ export default {
         this.getCars();
     },
     computed: {
+        unique () {
+            return function (arr, key) {
+                var output = []
+                var usedKeys = {}
+                for (var i = 0; i < arr.length; i++) {
+                    if (!usedKeys[arr[i][key]]) {
+                        usedKeys[arr[i][key]] = true
+                        output.push(arr[i])
+                    }
+                }
+                return output
+            }
+        },
         carsFilter() {
-            return this.cars.filter((obj, i) => {
+            return this.cars.filter((obj) => {
                 return obj.client_id === this.selectClient
             });
         }
@@ -93,7 +106,7 @@ export default {
                 })
                 .then(response => {
                     this.edit = false;
-                    selectCar: "",
+                    this.selectClient = 1;
                     this.getCars();
                     console.log(response);
                 })
