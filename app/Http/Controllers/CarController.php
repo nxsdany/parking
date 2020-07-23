@@ -49,7 +49,7 @@ class CarController extends Controller
         $car['created_at'] = now();
         $car['updated_at'] = now();
        (new Car)->storeCar($car);
-       return redirect('car')->with('success','Car created successfully.');
+       return redirect('client')->with('success','Автомобиль создан успешно.');
     }
 
     /**
@@ -95,7 +95,7 @@ class CarController extends Controller
         $car['parked'] = (isset($_POST['parked']) == '1' ? '1' : '0');
         $car['updated_at'] = now();
         (new Car)->updateCar($car, $id);
-              return redirect('client')->with('success','Car updated successfully.');
+              return redirect('client')->with('success','Автомобиль успешно обновлен.');
     }
 
     /**
@@ -107,6 +107,6 @@ class CarController extends Controller
     public function destroy($id)
     {
         (new Car)->deleteCar($id);
-        return redirect('car')->with('success','Car delete successfully.');
+        return redirect('car')->with('success','Автомобиль удален.');
     }
 }

@@ -46,7 +46,7 @@ class ClientController extends Controller
         $client['updated_at'] = now();
        (new Client)->storeClient($client);
 
-       return redirect('client')->with('success','Client created successfully.');
+       return redirect('car/create')->with('success','Клиент добавлен, добавьте, пожалуйста, автомобиль.');
     }
 
     /**
@@ -89,7 +89,7 @@ class ClientController extends Controller
         $client['address'] = $request->input('address');
         $client['updated_at'] = now();
        (new Client)->updateClient($client, $id);
-              return redirect('client')->with('success','Client updated successfully.');
+              return redirect('client')->with('success','Данные о клиенте успешно обновлены.');
     }
 
     /**
@@ -101,6 +101,6 @@ class ClientController extends Controller
     public function destroy($id)
     {
         (new Client)->deleteClient($id);
-        return redirect('client')->with('success','Client & his cars delete successfully.');
+        return redirect('client')->with('success','Клиент и его автомобили удалены');
     }
 }
