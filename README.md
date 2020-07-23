@@ -1,4 +1,5 @@
-Установка и запуск
+
+# Установка и запуск
 
 git clone https://github.com/nxsdany/parking.git
 
@@ -12,15 +13,14 @@ php artisan key:generate
 
 npm install && npm run production
 
-# необходимо создать базу данных
+// необходимо создать базу данных
 
 php artisan migrate
 
 php artisan db:seed --class ClientSeeder
 
 php artisan db:seed --class CarSeeder
-
-
+<hr/>
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
