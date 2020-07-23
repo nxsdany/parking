@@ -22,19 +22,19 @@
                         {!! csrf_field() !!}
                         <div class="form-group">
                             <label for="brand">Марка</label>
-                            <input type="text" name="brand" class="form-control">
+                            <input type="text" name="brand" value="{{ Request::old('brand') }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="model">Модель</label>
-                            <input type="text" name="model" class="form-control">
+                            <input type="text" name="model" value="{{ Request::old('model') }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="color">Цвет</label>
-                            <input type="text" name="color" class="form-control">
+                            <input type="text" name="color" value="{{ Request::old('color') }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="number">Гос. номер</label>
-                            <input type="text" name="number" class="form-control">
+                            <input type="text" name="number" value="{{ Request::old('number') }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="client_id">Клиент
